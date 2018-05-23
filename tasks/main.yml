@@ -30,6 +30,13 @@
   with_items:
    - nginx-extras
    - passenger
+   - libnginx-mod-http-passenger
+
+- name: enable the Passenger Nginx 
+  file:
+    src: "/usr/share/nginx/modules-available/mod-http-passenger.load"
+    dest: "/etc/nginx/modules-enabled/50-mod-http-passenger.conf"
+    state: link
 
 # Nginx and passenger configuration.
 - name: Copy Nginx configuration into place.
