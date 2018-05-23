@@ -3,6 +3,7 @@ user {{ nginx_user }};
 worker_processes {{ nginx_worker_processes }};
 pid /run/nginx.pid;
 
+include /etc/nginx/modules-enabled/*.conf;
 events {
   worker_connections {{ nginx_worker_connections }};
   # multi_accept on;
