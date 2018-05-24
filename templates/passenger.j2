@@ -4,4 +4,8 @@ server {
   passenger_enabled on;
   passenger_app_env {{ passenger_app_env }};
   root {{ passenger_app_root }};
+  
+  {% for key, value in passenger_env_vars.items() %}
+    passenger_env_var {{ key|upper }} {{value}};
+  {% endfor %}
 }
